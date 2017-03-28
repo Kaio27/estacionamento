@@ -19,7 +19,23 @@ public class Estacionamento {
     
     //ArrayList<Vaga> vagas = new ArrayList();
     List<Vaga> vagas;
-    int quant;
+    private int quant;
+
+    public List<Vaga> getVagas() {
+        return vagas;
+    }
+
+    public void setVagas(List<Vaga> vagas) {
+        this.vagas = vagas;
+    }
+
+    public int getQuant() {
+        return quant;
+    }
+
+    public void setQuant(int quant) {
+        this.quant = quant;
+    }
     public Estacionamento(int vagas){
         this.quant = vagas;
        this.vagas = new ArrayList<Vaga>(vagas);

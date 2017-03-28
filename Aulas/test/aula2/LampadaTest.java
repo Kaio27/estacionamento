@@ -42,8 +42,8 @@ public class LampadaTest {
         Lampada l = new Lampada("Phillips");
 //        System.out.println(l.acesa);
         l.acender();
-        System.out.println(l.acesa);
-        System.out.println(l.marca);
+        System.out.println(l.getAcesa());
+        System.out.println(l.getMarca());
 //        l.apagar();
 //        System.out.println(l.acesa);
     }
