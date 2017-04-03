@@ -13,12 +13,12 @@ import java.util.List;
  * @author a120065
  */
 public class TelaEstacionamento extends javax.swing.JFrame {
-
     
-    
+    Estacionamento est;
+    String placa;
     public TelaEstacionamento() {
         initComponents();
-        
+       est = new Estacionamento(20);
         
     }
     
@@ -36,12 +36,10 @@ public class TelaEstacionamento extends javax.swing.JFrame {
     private void initComponents() {
 
         campoAdicionarCarro = new javax.swing.JButton();
-        campoPlaca = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
         botaoVagaEsquerda = new javax.swing.JButton();
         botaoVagaDireita = new javax.swing.JButton();
-        botaoVagaEsquerda2 = new javax.swing.JButton();
-        botaoVagaDireita2 = new javax.swing.JButton();
+        campoPlaca = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -53,8 +51,6 @@ public class TelaEstacionamento extends javax.swing.JFrame {
             }
         });
 
-        campoPlaca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField1.setText("Placa");
 
@@ -62,60 +58,64 @@ public class TelaEstacionamento extends javax.swing.JFrame {
 
         botaoVagaDireita.setText("D1");
 
-        botaoVagaEsquerda2.setText("E2");
-
-        botaoVagaDireita2.setText("D2");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(campoAdicionarCarro)
-                    .addComponent(campoPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(238, 238, 238))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botaoVagaEsquerda2, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                    .addComponent(botaoVagaEsquerda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botaoVagaDireita, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                    .addComponent(botaoVagaDireita2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(campoAdicionarCarro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(campoPlaca)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(botaoVagaEsquerda)
+                        .addGap(29, 29, 29)
+                        .addComponent(botaoVagaDireita)))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(campoAdicionarCarro)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoVagaEsquerda)
                     .addComponent(botaoVagaDireita))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoVagaEsquerda2)
-                    .addComponent(botaoVagaDireita2))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addGap(41, 41, 41))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoAdicionarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoAdicionarCarroActionPerformed
-        
+        placa = campoPlaca.getText();
+        Vaga v = new Vaga(placa);
+        est.adicionarCarro(v);
+        atualizarTela();
+       
     }//GEN-LAST:event_campoAdicionarCarroActionPerformed
 
+    public void atualizarTela(){
+        if(est.vagas != null){
+            this.botaoVagaEsquerda.setText(est.vagas.get(0).placa);
+        }else {
+            this.botaoVagaDireita.setText(est.vagas.get(20).placa);
+        } 
+        
+    }
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -153,9 +153,7 @@ public class TelaEstacionamento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoVagaDireita;
-    private javax.swing.JButton botaoVagaDireita2;
     private javax.swing.JButton botaoVagaEsquerda;
-    private javax.swing.JButton botaoVagaEsquerda2;
     private javax.swing.JButton campoAdicionarCarro;
     private javax.swing.JTextField campoPlaca;
     private javax.swing.JTextField jTextField1;

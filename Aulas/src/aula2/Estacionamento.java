@@ -20,6 +20,7 @@ public class Estacionamento {
     //ArrayList<Vaga> vagas = new ArrayList();
     List<Vaga> vagas;
     private int quant;
+    
 
     public List<Vaga> getVagas() {
         return vagas;
@@ -87,7 +88,7 @@ public class Estacionamento {
     public void ListarVagas(){
         for(int i=0;i<this.vagas.size();i++){
                System.out.println("------------------- " + i + " -------------------");
-               System.out.println("Placa -> " + this.vagas.get(i).placa);
+               System.out.println("Placa -> " + this.vagas.get(i).getPlaca());
                System.out.println("Data de Entrada -> " + this.vagas.get(i).entradaData);
                 System.out.println("Hora de Entrada -> " + this.vagas.get(i).entradaHora);
                 System.out.println("------------------------------------------------");
